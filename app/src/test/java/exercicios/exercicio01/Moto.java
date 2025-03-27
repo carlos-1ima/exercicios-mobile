@@ -8,18 +8,37 @@ public class Moto extends Veiculo{
     }
 
     public void ligar() {
-        Log.i("Moto", "Ligando " + marca + " " + modelo);
+        try {
+            if (getMarca() == null || getModelo() == null) {
+                throw new IllegalStateException("A marca e o modelo devem estar definidos antes de ligar.");
+            }
+            Log.i("Moto", "Ligando " + getMarca() + " " + getModelo());
+        } catch (Exception e) {
+            Log.e("Moto", "Erro ao ligar a moto: " + e.getMessage());
+        }
     }
 
     public void acelerar() {
-        Log.i("Moto", "Acelerando " + marca + " " + modelo);
+        try {
+            Log.i("Moto", "Acelerando " + getMarca() + " " + getModelo());
+        } catch (Exception e) {
+            Log.e("Moto", "Erro ao acelerar: " + e.getMessage());
+        }
     }
 
     public void frear() {
-        Log.i("Moto", "Freando " + marca + " " + modelo);
+        try {
+            Log.i("Moto", "Freando " + getMarca() + " " + getModelo());
+        } catch (Exception e) {
+            Log.e("Moto", "Erro ao frear: " + e.getMessage());
+        }
     }
 
     public void desligar() {
-        Log.i("Moto", "Desligando " + marca + " " + modelo);
+        try {
+            Log.i("Moto", "Desligando " + getMarca() + " " + getModelo());
+        } catch (Exception e) {
+            Log.e("Moto", "Erro ao desligar: " + e.getMessage());
+        }
     }
 }
